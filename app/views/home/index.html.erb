@@ -18,7 +18,7 @@
 <% end %>
 <br><br>
 <% if parent_signed_in? %>
-  <%= link_to "Logout", destroy_parent_session_path, method: :delete %> 
+  <%= button_to "Logout", destroy_parent_session_path, method: :delete %> 
 <% else %>
   <%= link_to "Login", new_parent_session_path %>
   <%= link_to "Sign Up", new_parent_registration_path %>
