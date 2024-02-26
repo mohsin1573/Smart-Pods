@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_26_103826) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_26_104547) do
   create_table "addresses", force: :cascade do |t|
     t.string "street1"
     t.string "city"
@@ -39,6 +39,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_26_103826) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["parent_id"], name: "index_children_on_parent_id"
+  end
+
+  create_table "parents", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_parents_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_parents_on_reset_password_token", unique: true
   end
 
   create_table "pictures", force: :cascade do |t|
