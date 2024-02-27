@@ -3,4 +3,7 @@ class Parent < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :children, class_name: 'Child'
+  has_many :applications
+  has_many :reviews
 end

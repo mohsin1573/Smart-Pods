@@ -4,4 +4,6 @@ class Pod < ApplicationRecord
   has_many :reviews
   has_one :address
   has_many :pictures, as: :imageable
+
+  enum :status, [ :active, :full, :closed ]
 end

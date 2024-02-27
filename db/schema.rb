@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_26_104547) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_27_075755) do
   create_table "addresses", force: :cascade do |t|
-    t.string "street1"
+    t.string "street"
     t.string "city"
     t.string "state"
     t.string "zipcode"
@@ -24,10 +24,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_26_104547) do
 
   create_table "applications", force: :cascade do |t|
     t.integer "parent_id", null: false
+    t.integer "child_id", null: false
     t.integer "pod_id", null: false
-    t.string "status"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["child_id"], name: "index_applications_on_child_id"
     t.index ["parent_id"], name: "index_applications_on_parent_id"
     t.index ["pod_id"], name: "index_applications_on_pod_id"
   end
@@ -66,7 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_26_104547) do
     t.text "description"
     t.string "location"
     t.integer "grade"
-    t.string "status"
+    t.integer "status", default: 0
     t.integer "teacher_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -92,6 +94,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_26_104547) do
   end
 
   add_foreign_key "addresses", "pods"
+  add_foreign_key "applications", "children"
   add_foreign_key "applications", "parents"
   add_foreign_key "applications", "pods"
   add_foreign_key "children", "parents"
