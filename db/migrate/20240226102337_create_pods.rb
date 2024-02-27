@@ -5,7 +5,7 @@ class CreatePods < ActiveRecord::Migration[7.0]
       t.text :description
       t.string :location
       t.integer :grade
-      t.string :status
+      t.integer :status, default: 0
       t.references :teacher, null: false, foreign_key: true
 
       t.timestamps
