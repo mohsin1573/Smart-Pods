@@ -2,11 +2,15 @@
   <%= button_to "Logout", destroy_parent_session_path, method: :delete %> 
 <% else %>
 <h3>You are not Signed In<h3>
-  <%= link_to "Login", new_parent_session_path %>
-  <%= link_to "Sign Up", new_parent_registration_path %>
+  <%= link_to "Login", new_parent_session_path %>-
+  <%= link_to "Sign Up", new_parent_registration_path %>-
 <% end %>
 
-<%= link_to "Create new pod", new_pod_path %>
+<%= link_to "Create new pod", new_pod_path %>-
+<%= link_to "Add Teacher", new_teacher_path %>
+<% if current_parent %>
+  <%= link_to "Add Children", new_child_path %>
+<% end %>
 
 <%= form_tag(root_path, method: :get) do %>
   <%= text_field_tag :search, params[:search], placeholder: "Search by name, location, or grade number" %>
