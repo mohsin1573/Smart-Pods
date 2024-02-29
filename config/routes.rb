@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   devise_for :parents
   resources :pods, only: [:index, :new, :create]
   resources :teachers, only: [:new, :create]
+  resources :children, only: [:new, :create]
 end
