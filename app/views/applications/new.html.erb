@@ -1,0 +1,13 @@
+<h1>Apply for a Pod</h1>
+
+<%= form_with(model: @application, url: applications_path, local: true) do |form| %>
+<%= form.hidden_field :parent_id, value: current_parent.id %>
+
+<%= form.label :pod_id, "Select Pod" %>
+<%= form.collection_select :pod_id, Pod.all, :id, :title, prompt: "Select Pod" %>
+
+<%= form.label :child_id, "Select Child" %>
+<%= form.collection_select :child_id, current_parent.children, :id, :name, prompt: "Select Child" %>
+
+<%= form.submit "Apply" %>
+<% end %>

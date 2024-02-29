@@ -3,13 +3,17 @@
 <% else %>
 <h3>You are not Signed In<h3>
   <%= link_to "Login", new_parent_session_path %>-
-  <%= link_to "Sign Up", new_parent_registration_path %>-
+  <%= link_to "Sign Up", new_parent_registration_path %><br><br>
 <% end %>
 
-<%= link_to "Create new pod", new_pod_path %>-
-<%= link_to "Add Teacher", new_teacher_path %>
+<% if !current_parent %>
+<%= link_to "Create new pod", new_pod_path %><br><br>
+<%= link_to "Add Teacher", new_teacher_path %><br><br>
+<% end %>
+
 <% if current_parent %>
-  <%= link_to "Add Children", new_child_path %>
+  <%= link_to "Add Children", new_child_path %><br><br>
+  <%= link_to "Apply for Pod", new_application_path %><br><br>
 <% end %>
 
 <%= form_tag(root_path, method: :get) do %>
