@@ -6,6 +6,8 @@
   <%= link_to "Sign Up", new_parent_registration_path %>
 <% end %>
 
+<%= link_to "Create new pod", new_pod_path %>
+
 <%= form_tag(root_path, method: :get) do %>
   <%= text_field_tag :search, params[:search], placeholder: "Search by name, location, or grade number" %>
   <%= submit_tag "Search" %>
