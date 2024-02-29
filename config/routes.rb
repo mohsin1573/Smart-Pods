@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   resources :teachers, only: [:new, :create]
   resources :children, only: [:new, :create]
   resources :applications, only: [:new, :create]
+  resources :pods do
+    resources :reviews, only: [:new, :create]
+  end
 end

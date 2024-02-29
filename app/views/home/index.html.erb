@@ -22,10 +22,16 @@
 <% end %>
 
 <% if @pods.present? %>
-<h1>List of Pods</h1>
-<ul>
-  <% @pods.each do |pod| %>
-    <li><%= pod.title %> - <%= pod.location %> - <%= pod.status %></li>
-  <% end %>
-</ul>
+  <h1>List of Pods</h1>
+  <ul>
+    <% @pods.each do |pod| %>
+      <li>
+        <%= pod.title %> - <%= pod.location %> - <%= pod.status %>
+        <% if parent_signed_in? %>
+          <%= link_to "Give Review", new_pod_review_path(pod_id: pod.id) %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
+

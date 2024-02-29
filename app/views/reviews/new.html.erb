@@ -1,0 +1,18 @@
+<h1>Write a Review</h1>
+
+<%= form_with(model: @review, url: pod_reviews_path, local: true) do |form| %>
+  <%= form.hidden_field :parent_id, value: current_parent.id %>
+  <%= form.hidden_field :pod_id, value: @pod.id %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.number_field :rating, in: 1..5 %>
+  </div>
+
+  <%= form.submit "Submit Review" %>
+<% end %>
