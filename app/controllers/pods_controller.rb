@@ -15,6 +15,6 @@ class PodsController < ApplicationController
   private
 
   def pod_params
-    params.require(:pod).permit(:title, :description, :location, :grade, :teacher_id)
+    params.require(:pod).permit(:title, :description, :location, :grade, :teacher_id, images: [])
   end
 end

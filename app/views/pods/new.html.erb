@@ -1,4 +1,4 @@
-<%= form_with(model: @pod, url: pods_path, local: true) do |form| %>
+<%= form_with(model: @pod, url: pods_path, local: true, multipart: true) do |form| %>
   <%= form.label :title %>
   <%= form.text_field :title %>
 <br><br>
@@ -10,6 +10,9 @@
 <br><br>
   <%= form.label :grade %>
   <%= form.number_field :grade %>
+<br><br>
+ <%= form.label :images %>
+  <%= form.file_field :images, multiple: true %>
 <br><br>
   <%= form.label :teacher_id, "Select Teacher" %>
   <%= form.collection_select :teacher_id, Teacher.all, :id, :name, prompt: "Select Teacher" %>
