@@ -1,3 +1,3 @@
 class Teacher < ApplicationRecord
-  has_many :pods
+  has_many :pods,  dependent: :destroy
 end

@@ -1,0 +1,5 @@
+<h1><%= @teacher.name %></h1>
+<p><%= @teacher.bio %></p>
+<%= link_to 'Edit', edit_teacher_path(@teacher) %>
+<%= button_to 'Delete', @teacher, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Back', teachers_path %>

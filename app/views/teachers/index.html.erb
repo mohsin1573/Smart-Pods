@@ -1,0 +1,11 @@
+<h1>List of Teachers</h1>
+<ul>
+  <% @teachers.each do |teacher| %>
+    <li>
+      <%= link_to teacher.name, teacher %>
+      <%= link_to 'Edit', edit_teacher_path(teacher) %>
+      <%= button_to 'Delete', teacher, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to 'New Teacher', new_teacher_path %>
