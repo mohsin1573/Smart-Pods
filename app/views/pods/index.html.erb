@@ -1,0 +1,10 @@
+<h1>List of Pods</h1>
+<ul>
+  <% @pods.each do |pod| %>
+    <li>
+      <%= link_to pod.title, pod %>
+      <%= pod.location %> - <%= pod.grade %>
+    </li>
+  <% end %>
+</ul>
+<%= paginate @pods %>
