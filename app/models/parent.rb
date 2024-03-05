@@ -5,5 +5,5 @@ class Parent < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :children, class_name: 'Child'
   has_many :applications
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 end

@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :children
   resources :applications, only: [:new, :create]
   resources :pods do
-    resources :reviews, only: [:new, :create]
+    resources :reviews
   end
 end

@@ -1,0 +1,9 @@
+<%= form_with(model: [@pod, @review], local: true) do |form| %>
+  <%= form.label :content %>
+  <%= form.text_area :content %>
+
+  <%= form.label :rating %>
+  <%= form.number_field :rating, in: 1..5 %>
+
+  <%= form.submit %>
+<% end %>
