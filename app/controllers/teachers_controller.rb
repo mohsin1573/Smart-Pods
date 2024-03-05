@@ -10,9 +10,11 @@ class TeachersController < ApplicationController
 
   def new
     @teacher = Teacher.new
+    @teacher.pictures.build
   end
 
   def edit
+    @teacher.pictures.build if @teacher.pictures.empty?
   end
 
   def create
@@ -43,6 +45,6 @@ class TeachersController < ApplicationController
   end
 
   def teacher_params
-    params.require(:teacher).permit(:name, :bio)
+    params.require(:teacher).permit(:name, :bio, pictures_attributes: [:id, :image])
   end
 end

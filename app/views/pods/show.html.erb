@@ -1,8 +1,6 @@
 <h1><%= @pod.title %></h1>
-<% if @pod.images.present? %>
-<%= image_tag @pod.images.first, alt: "..." , class: "img-fluid" %>
-<% else %>
-<%= image_tag 'default.png', alt: "Default Image" , class: "img-fluid" %>
+<% @pod.pictures.each do |picture| %>
+  <%= image_tag picture.image, alt: "Teacher Image", class: "img-fluid" %>
 <% end %>
 <p><%= @pod.description %></p>
 <p>Location: <%= @pod.location %></p>

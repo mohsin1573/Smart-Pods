@@ -1,4 +1,7 @@
 <h1><%= @child.name %></h1>
+<% @child.pictures.each do |picture| %>
+  <%= image_tag picture.image, alt: "Child Image", class: "img-fluid" %>
+<% end %>
 <p>Grade: <%= @child.grade %></p>
 <%= link_to 'Edit', edit_child_path(@child) %> |
 <%= link_to 'Back', children_path %>

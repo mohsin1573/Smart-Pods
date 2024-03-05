@@ -1,12 +1,12 @@
-<%= form_with(model: @child, local: true) do |form| %>
+<%= form_with(model: @teacher, local: true) do |form| %>
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :grade %>
-    <%= form.number_field :grade %>
+    <%= form.label :bio %>
+    <%= form.text_area :bio %>
   </div>
 
   <%= form.fields_for :pictures do |picture_form| %>
@@ -16,5 +16,5 @@
 
   <%= form.hidden_field :parent_id, value: current_parent.id %>
 
-  <%= form.submit "Add Child" %>
+  <%= form.submit "Add Teacher" %>
 <% end %>

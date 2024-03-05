@@ -1,9 +1,4 @@
-<%= form_with(model: @teacher, local: true) do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-
-  <%= form.label :bio %>
-  <%= form.text_area :bio %>
-
-  <%= form.submit 'Update Teacher' %>
-<% end %>
+<h1>Edit Teacher</h1>
+<%= render 'form', teacher: @teacher %>
+<%= link_to 'Show', @teacher %> |
+<%= link_to 'Back', teachers_path %>

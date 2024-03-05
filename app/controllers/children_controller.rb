@@ -7,6 +7,7 @@ class ChildrenController < ApplicationController
 
   def new
     @child = Child.new
+    @child.pictures.build
   end
 
   def create
@@ -22,6 +23,7 @@ class ChildrenController < ApplicationController
   end
 
   def edit
+    @child.pictures.build if @child.pictures.empty?
   end
 
   def update
@@ -44,6 +46,7 @@ class ChildrenController < ApplicationController
   end
 
   def child_params
-    params.require(:child).permit(:name, :grade, :parent_id)
+    params.require(:child).permit(:name, :grade, :parent_id, pictures_attributes: [:id, :image])
   end
+
 end

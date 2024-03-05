@@ -1,15 +1,4 @@
 <%= form_with(model: @pod, local: true) do |form| %>
-  <% if @pod.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(pod.errors.count, "error") %> prohibited this pod from being saved:</h2>
-
-      <ul>
-        <% pod.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= form.label :title %>
@@ -33,12 +22,14 @@
 
   <div class="field">
     <%= form.label :teacher_id %>
-    <%= form.number_field :teacher_id %>
+    <%= form.collection_select :teacher_id, Teacher.all, :id, :name, prompt: "Select a teacher" %>
   </div>
 
   <div class="field">
-    <%= form.label :images %>
-    <%= form.file_field :images, multiple: true %>
+    <%= form.fields_for :pictures do |picture_form| %>
+    <%= picture_form.label :image %>
+    <%= picture_form.file_field :image %>
+    <% end %>
   </div>
 
   <div class="actions">

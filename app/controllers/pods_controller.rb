@@ -11,9 +11,11 @@ class PodsController < ApplicationController
 
   def new
     @pod = Pod.new
+    @pod.pictures.build
   end
 
   def edit
+    @pod.pictures.build if @pod.pictures.empty?
   end
 
   def create
@@ -45,6 +47,6 @@ class PodsController < ApplicationController
     end
 
     def pod_params
-      params.require(:pod).permit(:title, :description, :location, :grade, :teacher_id, images: [])
+      params.require(:pod).permit(:title, :description, :location, :grade, :teacher_id, pictures_attributes: [:id, :image])
     end
 end
