@@ -58,17 +58,17 @@
       <div class="row">
         <% if @pods.present? %>
             <div class="row">
-              <% @pods.reverse_each do |pod, index| %>
+              <% @pods.each do |pod| %>
                 <div class="col-lg-4 col-sm-6 mb-4">
                   <div class="portfolio-item">
-                    <a class="portfolio-link" data-bs-toggle="modal" href="#">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
                       <div class="portfolio-hover">
                         <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                       </div>
-                      <% if pod.images.present? %>
-                        <%= image_tag pod.images.first, alt: "..." , class: "img-fluid" %>
-                      <% else %>
-                        <%= image_tag 'default.png', alt: "Default Image" , class: "img-fluid" %>
+                      <% if pod.pictures.present? && pod.pictures.first.image.attached? %>
+                          <%= image_tag pod.pictures.first.image, alt: "..." , class: "img-fluid" %>
+                        <% else %>
+                          <%= image_tag 'default.png', alt: "Default Image" , class: "img-fluid" %>
                       <% end %>
                     </a>
                     <div class="portfolio-caption">
