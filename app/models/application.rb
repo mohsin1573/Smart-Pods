@@ -7,4 +7,8 @@ class Application < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     ["child_id", "created_at", "id", "parent_id", "pod_id", "status", "updated_at"]
   end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["parent", "pod"]
+  end
 end
