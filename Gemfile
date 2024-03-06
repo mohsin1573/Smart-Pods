@@ -50,6 +50,8 @@ gem "bootsnap", require: false
 
 gem 'devise'
 gem 'kaminari'
+gem 'activeadmin'
+gem 'sassc'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
