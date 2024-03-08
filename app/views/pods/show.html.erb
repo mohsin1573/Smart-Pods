@@ -1,8 +1,8 @@
-<h1><%= @pod.title %></h1>
+<h1><%= @pod.name %></h1>
 <% @pod.pictures.each do |picture| %>
   <%= image_tag picture.image, alt: "Pod Image", class: "img-fluid" %>
 <% end %>
-<p><%= @pod.description %></p>
+<p><%= @pod.status %></p>
 <p>Location: <%= @pod.location %></p>
 <p>Grade: <%= @pod.grade %></p>
 <%= link_to 'Edit', edit_pod_path(@pod) %> |

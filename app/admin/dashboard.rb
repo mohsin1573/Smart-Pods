@@ -8,7 +8,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recent Pods" do
           ul do
             Pod.last(5).map do |pod|
-              li link_to(pod.title, admin_pod_path(pod))
+              li link_to(pod.name, admin_pod_path(pod))
             end
           end
         end

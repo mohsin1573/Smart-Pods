@@ -2,8 +2,8 @@
 <ul>
   <% @pods.each do |pod| %>
     <li>
-      <%= link_to pod.title, pod %>
-      <%= pod.location %> - <%= pod.grade %>
+      <%= link_to pod.name, pod %>
+      <%= pod.status %> - <%= pod.grade %>
     </li>
   <% end %>
 </ul>
