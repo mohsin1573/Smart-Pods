@@ -68,11 +68,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_08_115315) do
     t.string "city"
     t.string "state"
     t.string "zipcode"
-    t.integer "pod_id", null: false
+    t.string "addressable_type"
+    t.integer "addressable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "country"
-    t.index ["pod_id"], name: "index_addresses_on_pod_id"
+    t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable"
   end
 
   create_table "admin_users", force: :cascade do |t|
@@ -166,7 +166,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_08_115315) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "addresses", "pods"
   add_foreign_key "applications", "children"
   add_foreign_key "applications", "parents"
   add_foreign_key "applications", "pods"

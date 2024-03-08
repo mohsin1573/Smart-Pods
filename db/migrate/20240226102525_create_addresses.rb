@@ -5,7 +5,7 @@ class CreateAddresses < ActiveRecord::Migration[7.0]
       t.string :city
       t.string :state
       t.string :zipcode
-      t.references :pod, null: false, foreign_key: true
+      t.references :addressable, polymorphic: true, index: true
 
       t.timestamps
     end
