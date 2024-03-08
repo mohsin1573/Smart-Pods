@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_06_094306) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_08_115315) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -71,6 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_06_094306) do
     t.integer "pod_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "country"
     t.index ["pod_id"], name: "index_addresses_on_pod_id"
   end
 
@@ -132,14 +133,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_06_094306) do
   end
 
   create_table "pods", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.string "location"
+    t.string "name"
     t.integer "grade"
     t.integer "status", default: 0
     t.integer "teacher_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "phone_number"
     t.index ["teacher_id"], name: "index_pods_on_teacher_id"
   end
 
@@ -159,6 +159,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_06_094306) do
     t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "phone_number"
+    t.string "education"
+    t.integer "grade"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

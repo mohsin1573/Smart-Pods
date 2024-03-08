@@ -4,9 +4,8 @@ ActiveAdmin.register Pod do
   index do
     selectable_column
     id_column
-    column :title
-    column :description
-    column :location
+    column :name
+    column :phone_number
     column :grade
     column :status
     column :teacher
@@ -15,9 +14,8 @@ ActiveAdmin.register Pod do
 
   form do |f|
     f.inputs "Pod Details" do
-      f.input :title
-      f.input :description
-      f.input :location
+      f.input :name
+      f.input :phone_number
       f.input :grade
       f.input :status
       f.input :teacher
