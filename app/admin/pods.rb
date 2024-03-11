@@ -17,6 +17,19 @@ ActiveAdmin.register Pod do
     actions
   end
 
+  show do
+    attributes_table do
+      row :name
+      row :bio
+      row :education
+      row :grade
+      row :phone_number
+      row :picture do |teacher|
+        image_tag teacher.pictures.first.image if teacher.pictures.present?
+      end
+    end
+  end
+
   form do |f|
     f.inputs "Pod Details" do
       f.input :name

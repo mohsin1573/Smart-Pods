@@ -20,4 +20,17 @@ ActiveAdmin.register Teacher do
     end
     f.actions
   end
+
+  show do
+    attributes_table do
+      row :name
+      row :bio
+      row :education
+      row :grade
+      row :phone_number
+      row :picture do |teacher|
+        image_tag teacher.pictures.first.image if teacher.pictures.present?
+      end
+    end
+  end
 end
