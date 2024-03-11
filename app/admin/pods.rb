@@ -13,6 +13,9 @@ ActiveAdmin.register Pod do
     column "Zip Code" do |pod|
       pod.address&.zipcode
     end
+    column :picture do |pod|
+      image_tag pod.pictures.first.image, size: '50x50' if pod.pictures.present?
+    end
     column :teacher
     actions
   end
@@ -24,8 +27,8 @@ ActiveAdmin.register Pod do
       row :education
       row :grade
       row :phone_number
-      row :picture do |teacher|
-        image_tag teacher.pictures.first.image if teacher.pictures.present?
+      row :picture do |pod|
+        image_tag pod.pictures.first.image, size: '50x50' if pod.pictures.present?
       end
     end
   end

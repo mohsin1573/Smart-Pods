@@ -22,6 +22,23 @@ ActiveAdmin.register Teacher do
     f.actions
   end
 
+  index do
+    selectable_column
+    id_column
+    column :name
+    column :phone_number
+    column :education
+    column :grade
+    column "Zip Code" do |teacher|
+      teacher.address&.zipcode
+    end
+    column :picture do |teacher|
+      image_tag teacher.pictures.first.image, size: '50x50' if teacher.pictures.present?
+    end
+    column :teacher
+    actions
+  end
+
   show do
     attributes_table do
       row :name
@@ -30,7 +47,11 @@ ActiveAdmin.register Teacher do
       row :grade
       row :phone_number
       row :picture do |teacher|
-        image_tag teacher.pictures.first.image if teacher.pictures.present?
+        if teacher.pictures.first.image.present?
+          image_tag teacher.pictures.first.image
+        else
+          "No picture available"
+        end
       end
     end
   end

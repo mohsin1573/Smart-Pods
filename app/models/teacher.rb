@@ -1,7 +1,7 @@
 class Teacher < ApplicationRecord
   validates :grade, inclusion: { in: GRADES }
 
-  has_many :pods,  dependent: :destroy
+  has_many :pods, dependent: :destroy
   has_many :pictures, as: :imageable, dependent: :destroy
   has_one :address, as: :addressable, dependent: :destroy
   accepts_nested_attributes_for :pictures
