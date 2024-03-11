@@ -1,5 +1,5 @@
 ActiveAdmin.register Teacher do
-  permit_params :name, :bio, :education, :phone_number, :grade ,address_attributes: [:id, :street, :city, :state, :zipcode, :country], pictures_attributes: [:id, :image]
+  permit_params :name, :bio, :education, :phone_number, :grade ,address_attributes: [:id, :street, :city, :state, :zipcode, :country], pictures_attributes: [:id, :image,:_destroy]
 
   form do |f|
     f.inputs "Teacher Details" do
@@ -15,7 +15,8 @@ ActiveAdmin.register Teacher do
         address_form.input :zipcode
       end
       f.has_many :pictures do |p|
-        p.input :image, as: :file, hint: p.object.image.present? ? image_tag(p.object.image.url, size: "200x200") : content_tag(:span, "Upload JPG/PNG")
+        p.input :image, as: :file, label: 'Image'
+        p.input :_destroy, as: :boolean, label: 'Remove Image'
       end
     end
     f.actions
