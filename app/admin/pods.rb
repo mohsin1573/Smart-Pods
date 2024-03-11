@@ -39,7 +39,7 @@ ActiveAdmin.register Pod do
       f.input :phone_number
       f.input :grade
       f.input :status
-      f.input :teacher
+      f.input :teacher, collection: Teacher.all.map { |t| ["#{t.name} - Grade #{t.grade}", t.id] }
       f.inputs "Address", for: [:address, f.object.address || Address.new] do |address_form|
         address_form.input :street
         address_form.input :city
