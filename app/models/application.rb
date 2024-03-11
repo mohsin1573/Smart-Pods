@@ -1,6 +1,7 @@
 class Application < ApplicationRecord
   belongs_to :parent
   belongs_to :pod
+  belongs_to :child
 
   enum :status, [ :pending, :approved, :rejected ]
 

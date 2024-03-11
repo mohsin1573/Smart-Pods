@@ -12,6 +12,7 @@ ActiveAdmin.register Application do
     id_column
     column :pod
     column :parent
+    column :child
     column :status
     actions defaults: false do |application|
       if application.pending?
