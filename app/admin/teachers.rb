@@ -48,7 +48,7 @@ ActiveAdmin.register Teacher do
       row :phone_number
       row :picture do |teacher|
         if teacher.pictures.first.image.present?
-          image_tag teacher.pictures.first.image
+          image_tag teacher.pictures.first.image, size: '50x50'
         else
           "No picture available"
         end
