@@ -5,5 +5,6 @@ class HomeController < ApplicationController
     else
       Pod.last(6)
     end
+    @teachers = Teacher.order(created_at: :desc).limit(3)
   end
 end
