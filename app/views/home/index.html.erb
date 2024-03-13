@@ -52,17 +52,6 @@
                         <%= link_to "Contact Us", new_application_path, class: "nav-item nav-link" %>
                         <%= link_to "Login", new_parent_session_path, class: "nav-item nav-link" %>
                     <% end %>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
-                            <a href="facility.html" class="dropdown-item">School Facilities</a>
-                            <a href="team.html" class="dropdown-item">Popular Teachers</a>
-                            <a href="call-to-action.html" class="dropdown-item">Become A Teacher</a>
-                            <a href="appointment.html" class="dropdown-item">Make Appointment</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonials</a>
-                            <a href="404.html" class="dropdown-item">404 Error</a>
-                        </div>
-                    </div>
                 </div>
                 <div class="input-group" style="width: 20%;">
                     <div class="form-outline">
@@ -89,8 +78,8 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-10 col-lg-8">
-                                    <h1 class="display-2 text-white animated slideInDown mb-4">The Best Kindergarten School For Your Child</h1>
-                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
+                                    <h1 class="display-2 text-white animated slideInDown mb-4">Empower Your Child's Learning Journey</h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Find the perfect educational match for your child with our diverse range of MicroSchools, each designed to nurture and inspire young minds.</p>
                                     <% if !current_parent %>
                                          <%= link_to 'Join US', new_parent_registration_path , class: "btn btn-primary rounded-pill py-sm-3  px-sm-5 me-3 animated slideInLeft", style: "text-decoration: none;" %>
                                          <%= link_to 'Already have an Account?', new_parent_session_path , class: "btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight", style: "text-decoration: none;" %>
@@ -106,8 +95,8 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-10 col-lg-8">
-                                    <h1 class="display-2 text-white animated slideInDown mb-4">Make A Brighter Future For Your Child</h1>
-                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
+                                    <h1 class="display-2 text-white animated slideInDown mb-4">Transformative Education</h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Experience a new era of education with our MicroSchools, where small class sizes and personalized attention unlock your child's full potential.</p>
                                     <% if !current_parent %>
                                          <%= link_to 'Join US', new_parent_registration_path , class: "btn btn-primary rounded-pill py-sm-3  px-sm-5 me-3 animated slideInLeft", style: "text-decoration: none;" %>
                                          <%= link_to 'Already have an Account?', new_parent_session_path , class: "btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight", style: "text-decoration: none;" %>
@@ -128,22 +117,8 @@
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <h1 class="mb-4">Learn More About Our Work And Our Cultural Activities</h1>
-                        <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                        <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor eos, ipsum labore duo duo sit no sea diam. Et dolor et kasd ea. Eirmod diam at dolor est vero nonumy magna.</p>
-                        <div class="row g-4 align-items-center">
-                            <div class="col-sm-6">
-                                <a class="btn btn-primary rounded-pill py-3 px-5" href="">Read More</a>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <%= image_tag("user.jpg", class: "rounded-circle flex-shrink-0", style: "width: 45px; height: 45px;", alt: "") %>
-                                    <div class="ms-3">
-                                        <h6 class="text-primary mb-1">Jhon Doe</h6>
-                                        <small>CEO & Founder</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <p>Our art programs encourage creativity and self-expression. Students explore various mediums and styles, allowing them to unleash their artistic talents and develop a lifelong appreciation for the arts.</p>
+                        <p class="mb-4">Join our community of engaged parents and dedicated teachers by applying for a pod at Smart Pods. Pods provide a unique learning environment where children can thrive academically, socially, and emotionally.Each pod at Smart Pods is tailored to meet the individual needs of every child. Our small class sizes and personalized curriculum ensure that each student receives the attention and support they deserve.</p>
                     </div>
                     <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
                         <div class="row">
@@ -177,8 +152,7 @@
                         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                             <div class="h-100 d-flex flex-column justify-content-center p-5">
                                 <h1 class="mb-4">Apply for Pod</h1>
-                                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
-                                    Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet
+                                <p class="mb-4">Join our community of engaged parents and dedicated teachers by applying for a pod at Smart Pods. Pods provide a unique learning environment where children can thrive academically, socially, and emotionally.Each pod at Smart Pods is tailored to meet the individual needs of every child. Our small class sizes and personalized curriculum ensure that each student receives the attention and support they deserve.
                                 </p>
                                 <% if parent_signed_in? %>
                                     <%= link_to "Apply Now", new_application_path, class: "btn btn-primary py-3 px-5" %>
@@ -199,7 +173,7 @@
   <div class="container">
     <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
       <h1 class="mb-3">Pods</h1>
-      <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+      <p>Explore our diverse range of pods designed to inspire and educate your child in a supportive environment.</p>
     </div>
     <div class="row g-4">
       <% @pods.each do |pod| %>
@@ -257,72 +231,12 @@
         <!-- Classes End -->
 
 
-        <!-- Appointment Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="bg-light rounded">
-                    <div class="row g-0">
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                            <div class="h-100 d-flex flex-column justify-content-center p-5">
-                                <h1 class="mb-4">Make Appointment</h1>
-                                <form>
-                                    <div class="row g-3">
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="gname" placeholder="Gurdian Name">
-                                                <label for="gname">Gurdian Name</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="email" class="form-control border-0" id="gmail" placeholder="Gurdian Email">
-                                                <label for="gmail">Gurdian Email</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="cname" placeholder="Child Name">
-                                                <label for="cname">Child Name</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="cage" placeholder="Child Age">
-                                                <label for="cage">Child Age</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-floating">
-                                                <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
-                                                <label for="message">Message</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
-                            <div class="position-relative h-100">
-                                <%= image_tag("appointment.jpg", class: "position-absolute w-100 h-100 rounded", style: "object-fit: cover;") %>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Appointment End -->
-
-
         <!-- Team Start -->
 <div class="container-xxl py-5">
   <div class="container">
     <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
       <h1 class="mb-3">Popular Teachers</h1>
-      <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit
-        eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+      <p>Enroll your child in classes led by our popular teachers, known for their dedication and ability to inspire students.</p>
     </div>
     <div class="row g-4">
       <% @teachers.each do |teacher| %>
