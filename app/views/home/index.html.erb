@@ -2,32 +2,34 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />      
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>GetSchoolHome</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <!-- Favicon -->
-    <link href="favicon.ico" rel="icon">
+        <%= csp_meta_tag %>
+            <!-- Favicon -->
+            <link href="favicon.ico" rel="icon">
 
-   <!-- Preconnect for Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <!-- Preconnect for Google Fonts -->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- Google Fonts Stylesheet -->
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
+            <!-- Google Fonts Stylesheet -->
+            <link
+                href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap"
+                rel="stylesheet">
 
-<!-- Icon Font Stylesheets -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+            <!-- Icon Font Stylesheets -->
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-<%= stylesheet_link_tag "animate.min" %>
-<%= stylesheet_link_tag "owl.carousel.min" %>
+            <!-- Libraries Stylesheet -->
+            <%= stylesheet_link_tag "animate.min" %>
+                <%= stylesheet_link_tag "owl.carousel.min" %>
 
-    <!-- Template Stylesheet -->
-    <%= stylesheet_link_tag "application" %>
+                    <!-- Template Stylesheet -->
+                    <%= stylesheet_link_tag "application" %>
 </head>
 
 <body>
@@ -49,7 +51,7 @@
                         <%= link_to "Apply for Pod", new_application_path, class: "nav-item nav-link" %>
                     <% else %>
                         <%= link_to "About Us", new_application_path, class: "nav-item nav-link" %>
-                        <%= link_to "Contact Us", new_application_path, class: "nav-item nav-link" %>
+                        <%= link_to "Contact Us", new_application_path, class: "nav-item nav-link"%>
                         <%= link_to "Login", new_parent_session_path, class: "nav-item nav-link" %>
                     <% end %>
                 </div>
@@ -61,10 +63,10 @@
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
-               <% if parent_signed_in? %>
-                 <%= button_to "Log Out", destroy_parent_session_path, method: :delete, class: "btn btn-primary rounded-pill px-3 ms-lg-3", style: "text-decoration: none;" %>
+                <% if parent_signed_in? %>
+                    <%= button_to "Log Out", destroy_parent_session_path, method: :delete, class: "btn btn-primary rounded-pill px-3 ms-lg-3", style: "text-decoration: none;" %>
                 <% else %>
-                  <%= link_to "Join Us<i class='fa fa-arrow-right ms-3'></i>".html_safe, new_parent_registration_path, class: "btn btn-primary rounded-pill px-3 ms-lg-3", style: "text-decoration: none;" %>
+                    <%= link_to "Join Us<i class='fa fa-arrow-right ms-3'></i>" .html_safe, new_parent_registration_path, class: "btn btn-primary rounded-pill px-3 ms-lg-3", style: "text-decoration: none;" %>
                 <% end %>
             </div>
         </nav>
@@ -74,37 +76,45 @@
             <div class="owl-carousel header-carousel position-relative">
                 <div class="owl-carousel-item position-relative">
                     <%= image_tag "carousel-1.jpg", class: "img-fluid", alt: "" %>
-                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
-                        <div class="container">
-                            <div class="row justify-content-start">
-                                <div class="col-10 col-lg-8">
-                                    <h1 class="display-2 text-white animated slideInDown mb-4">Empower Your Child's Learning Journey</h1>
-                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Find the perfect educational match for your child with our diverse range of MicroSchools, each designed to nurture and inspire young minds.</p>
-                                    <% if !current_parent %>
-                                         <%= link_to 'Join US', new_parent_registration_path , class: "btn btn-primary rounded-pill py-sm-3  px-sm-5 me-3 animated slideInLeft", style: "text-decoration: none;" %>
-                                         <%= link_to 'Already have an Account?', new_parent_session_path , class: "btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight", style: "text-decoration: none;" %>
-                                     <% end %>
+                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                            style="background: rgba(0, 0, 0, .2);">
+                            <div class="container">
+                                <div class="row justify-content-start">
+                                    <div class="col-10 col-lg-8">
+                                        <h1 class="display-2 text-white animated slideInDown mb-4">Empower Your Child's
+                                            Learning Journey</h1>
+                                        <p class="fs-5 fw-medium text-white mb-4 pb-2">Find the perfect educational
+                                            match for your child with our diverse range of MicroSchools, each designed
+                                            to nurture and inspire young minds.</p>
+                                        <% if !current_parent %>
+                                            <%= link_to 'Join US', new_parent_registration_path, class: "btn btn-primary rounded-pill py-sm-3  px-sm-5 me-3 animated slideInLeft", style: "text-decoration: none;" %>
+                                                <%= link_to 'Already have an Account?', new_parent_session_path, class: "btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight", style: "text-decoration: none;" %>
+                                        <% end %>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
                 <div class="owl-carousel-item position-relative">
                     <%= image_tag "carousel-2.jpg", class: "img-fluid", alt: "" %>
-                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0, 0, 0, .2);">
-                        <div class="container">
-                            <div class="row justify-content-start">
-                                <div class="col-10 col-lg-8">
-                                    <h1 class="display-2 text-white animated slideInDown mb-4">Transformative Education</h1>
-                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Experience a new era of education with our MicroSchools, where small class sizes and personalized attention unlock your child's full potential.</p>
-                                    <% if !current_parent %>
-                                         <%= link_to 'Join US', new_parent_registration_path , class: "btn btn-primary rounded-pill py-sm-3  px-sm-5 me-3 animated slideInLeft", style: "text-decoration: none;" %>
-                                         <%= link_to 'Already have an Account?', new_parent_session_path , class: "btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight", style: "text-decoration: none;" %>
-                                     <% end %>
+                        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                            style="background: rgba(0, 0, 0, .2);">
+                            <div class="container">
+                                <div class="row justify-content-start">
+                                    <div class="col-10 col-lg-8">
+                                        <h1 class="display-2 text-white animated slideInDown mb-4">Transformative
+                                            Education</h1>
+                                        <p class="fs-5 fw-medium text-white mb-4 pb-2">Experience a new era of education
+                                            with our MicroSchools, where small class sizes and personalized attention
+                                            unlock your child's full potential.</p>
+                                        <% if !current_parent %>
+                                            <%= link_to 'Join US', new_parent_registration_path, class: "btn btn-primary rounded-pill py-sm-3  px-sm-5 me-3 animated slideInLeft", style: "text-decoration: none;" %>
+                                            <%= link_to 'Already have an Account?', new_parent_session_path, class: "btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight", style: "text-decoration: none;" %>
+                                        <% end %>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -117,19 +127,28 @@
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <h1 class="mb-4">Learn More About Our Work And Our Cultural Activities</h1>
-                        <p>Our art programs encourage creativity and self-expression. Students explore various mediums and styles, allowing them to unleash their artistic talents and develop a lifelong appreciation for the arts.</p>
-                        <p class="mb-4">Join our community of engaged parents and dedicated teachers by applying for a pod at Smart Pods. Pods provide a unique learning environment where children can thrive academically, socially, and emotionally.Each pod at Smart Pods is tailored to meet the individual needs of every child. Our small class sizes and personalized curriculum ensure that each student receives the attention and support they deserve.</p>
+                        <p>Our art programs encourage creativity and self-expression. Students explore various mediums
+                            and styles, allowing them to unleash their artistic talents and develop a lifelong
+                            appreciation for the arts.</p>
+                        <p class="mb-4">Join our community of engaged parents and dedicated teachers by applying for a
+                            pod at Smart Pods. Pods provide a unique learning environment where children can thrive
+                            academically, socially, and emotionally.Each pod at Smart Pods is tailored to meet the
+                            individual needs of every child. Our small class sizes and personalized curriculum ensure
+                            that each student receives the attention and support they deserve.</p>
                     </div>
                     <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
                         <div class="row">
                             <div class="col-12 text-center">
-                              <%= image_tag("about-1.jpg", class: "img-fluid w-75 rounded-circle bg-light p-3", alt: "") %>
+                                <%= image_tag("about-1.jpg", class: "img-fluid w-75 rounded-circle bg-light p-3",
+                                    alt: "" ) %>
                             </div>
                             <div class="col-6 text-start" style="margin-top: -150px;">
-                              <%= image_tag("about-2.jpg", class: "img-fluid w-100 rounded-circle bg-light p-3", alt: "") %>
+                                <%= image_tag("about-2.jpg", class: "img-fluid w-100 rounded-circle bg-light p-3",
+                                    alt: "" ) %>
                             </div>
                             <div class="col-6 text-end" style="margin-top: -150px;">
-                                <%= image_tag("about-3.jpg", class: "img-fluid w-100 rounded-circle bg-light p-3", alt: "") %>
+                                <%= image_tag("about-3.jpg", class: "img-fluid w-100 rounded-circle bg-light p-3",
+                                    alt: "" ) %>
                             </div>
                         </div>
                     </div>
@@ -146,13 +165,19 @@
                     <div class="row g-0">
                         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s" style="min-height: 400px;">
                             <div class="position-relative h-100">
-                                <%= image_tag("call-to-action.jpg", class: "position-absolute w-100 h-100 rounded", style: "object-fit: cover;") %>
+                                <%= image_tag("call-to-action.jpg", class: "position-absolute w-100 h-100 rounded",
+                                    style: "object-fit: cover;" ) %>
                             </div>
                         </div>
                         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                             <div class="h-100 d-flex flex-column justify-content-center p-5">
                                 <h1 class="mb-4">Apply for Pod</h1>
-                                <p class="mb-4">Join our community of engaged parents and dedicated teachers by applying for a pod at Smart Pods. Pods provide a unique learning environment where children can thrive academically, socially, and emotionally.Each pod at Smart Pods is tailored to meet the individual needs of every child. Our small class sizes and personalized curriculum ensure that each student receives the attention and support they deserve.
+                                <p class="mb-4">Join our community of engaged parents and dedicated teachers by applying
+                                    for a pod at Smart Pods. Pods provide a unique learning environment where children
+                                    can thrive academically, socially, and emotionally.Each pod at Smart Pods is
+                                    tailored to meet the individual needs of every child. Our small class sizes and
+                                    personalized curriculum ensure that each student receives the attention and support
+                                    they deserve.
                                 </p>
                                 <% if parent_signed_in? %>
                                     <%= link_to "Apply Now", new_application_path, class: "btn btn-primary py-3 px-5" %>
@@ -169,114 +194,130 @@
 
 
         <!-- Classes Start -->
-<div class="container-xxl py-5">
-  <div class="container">
-    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-      <h1 class="mb-3">Pods</h1>
-      <p>Explore our diverse range of pods designed to inspire and educate your child in a supportive environment.</p>
-    </div>
-    <div class="row g-4">
-      <% @pods.each do |pod| %>
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-          <div class="classes-item">
-            <div class="bg-light rounded-circle w-75 mx-auto p-3">
-            <% if pod.pictures.present? && pod.pictures.first.image.attached? %>
-                <%= image_tag pod.pictures.first.image, alt: "..." , class: "img-fluid rounded-circle" %>
-            <% else %>
-                <%= image_tag 'classes-3.jpg', alt: "Default Image" , class: "img-fluid" %>
-            <% end %>
-            </div>
-            <div class="bg-light rounded p-4 pt-5 mt-n5">
-              <a class="d-block text-center h3 mt-3 mb-4" href="<%= pod_path(pod) %>"><%= pod.name %></a>
-              <div class="d-flex align-items-center justify-content-between mb-4">
-                <div class="d-flex align-items-center">
-                  <% if pod.teacher.present? && pod.teacher.pictures.present? && pod.teacher.pictures.first.image.attached? %>
-                        <%= image_tag(pod.teacher.pictures.first.image, class: "rounded-circle flex-shrink-0", style: "width: 45px; height: 45px;", alt: "") %>
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">Pods</h1>
+                    <p>Explore our diverse range of pods designed to inspire and educate your child in a supportive
+                        environment.</p>
+                </div>
+                <div class="row g-4">
+                    <% @pods.each do |pod| %>
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="classes-item">
+                                <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                    <% if pod.pictures.present? && pod.pictures.first.image.attached? %>
+                                        <%= image_tag pod.pictures.first.image, alt: "...", class: "img-fluid rounded-circle" %>
+                                    <% else %>
+                                        <%= image_tag 'classes-3.jpg', alt: "Default Image", class: "img-fluid" %>
+                                    <% end %>
+                                </div>
+                                <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                    <a class="d-block text-center h3 mt-3 mb-4" href="<%= pod_path(pod) %>">
+                                        <%= pod.name %>
+                                    </a>
+                                    <div class="d-flex align-items-center justify-content-between mb-4">
+                                        <div class="d-flex align-items-center">
+                                            <% if pod.teacher.present? && pod.teacher.pictures.present? && pod.teacher.pictures.first.image.attached? %>
+                                                <%= image_tag(pod.teacher.pictures.first.image, class: "rounded-circle flex-shrink-0", style: "width: 45px; height: 45px;", alt: "" ) %>
+                                            <% end %>
+                                                        <div class="ms-3">
+                                                            <h6 class="text-primary mb-1">
+                                                                <%= pod.teacher.name %>
+                                                            </h6>
+                                                            <small>Teacher</small>
+                                                        </div>
+                                        </div>
+                                        <span class="bg-primary text-white rounded-pill py-2 px-3" href="">
+                                            <%= pod.status %>
+                                        </span>
+                                    </div>
+                                    <div class="row g-1">
+                                        <div class="col-4">
+                                            <div class="border-top border-3 border-primary pt-2">
+                                                <h6 class="text-primary mb-1">Grade:</h6>
+                                                <small>
+                                                    <%= pod.grade %>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="border-top border-3 border-success pt-2">
+                                                <h6 class="text-success mb-1">Zipcode:</h6>
+                                                <small>
+                                                    <%= pod.address.zipcode %>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="border-top border-3 border-warning pt-2">
+                                                <h6 class="text-warning mb-1">State:</h6>
+                                                <small>
+                                                    <%= pod.address.state %>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     <% end %>
-                 <div class="ms-3">
-                    <h6 class="text-primary mb-1"><%= pod.teacher.name %></h6>
-                    <small>Teacher</small>
-                  </div>
                 </div>
-                <span class="bg-primary text-white rounded-pill py-2 px-3" href=""><%= pod.status %></span>
-              </div>
-              <div class="row g-1">
-                <div class="col-4">
-                  <div class="border-top border-3 border-primary pt-2">
-                    <h6 class="text-primary mb-1">Grade:</h6>
-                    <small><%= pod.grade %></small>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="border-top border-3 border-success pt-2">
-                    <h6 class="text-success mb-1">Zipcode:</h6>
-                    <small><%= pod.address.zipcode %></small>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="border-top border-3 border-warning pt-2">
-                    <h6 class="text-warning mb-1">State:</h6>
-                    <small><%= pod.address.state %></small>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-      <% end %>
-    </div>
-  </div>
-</div>
 
         <!-- Classes End -->
 
 
         <!-- Team Start -->
-<div class="container-xxl py-5">
-  <div class="container">
-    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-      <h1 class="mb-3">Popular Teachers</h1>
-      <p>Enroll your child in classes led by our popular teachers, known for their dedication and ability to inspire students.</p>
-    </div>
-    <div class="row g-4">
-      <% @teachers.each do |teacher| %>
-        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="<%= rand(0.1..0.5) %>s">
-          <div class="team-item position-relative">
-            <% if teacher.pictures.present? && teacher.pictures.first.image.attached? %>
-                <%= image_tag teacher.pictures.first.image, alt: "..." , class: "img-fluid rounded-circle w-75" %>
-            <% else %>
-                <%= image_tag 'team-2.jpg', alt: "Default Image" , class: "img-fluid rounded-circle w-75" %>
-            <% end %>
-            <div class="team-text">
-              <h3><%= teacher.name %></h3>
-              <p><%= teacher.education %></p>
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">Popular Teachers</h1>
+                    <p>Enroll your child in classes led by our popular teachers, known for their dedication and ability
+                        to inspire students.</p>
+                </div>
+                <div class="row g-4">
+                    <% @teachers.each do |teacher| %>
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="<%= rand(0.1..0.5) %>s">
+                            <div class="team-item position-relative">
+                                <% if teacher.pictures.present? && teacher.pictures.first.image.attached? %>
+                                    <%= image_tag teacher.pictures.first.image, alt: "...", class: "img-fluid rounded-circle w-75" %>
+                                <% else %>
+                                    <%= image_tag 'team-2.jpg', alt: "Default Image", class: "img-fluid rounded-circle w-75" %>
+                                <% end %>
+                                <div class="team-text">
+                                    <h3>
+                                        <%= teacher.name %>
+                                    </h3>
+                                    <p>
+                                      <%= teacher.education %>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
             </div>
-          </div>
         </div>
-      <% end %>
-    </div>
-  </div>
-</div>
 
         <!-- Team End -->
 
-    <!-- JavaScript Libraries -->
-    <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <!-- JavaScript Libraries -->
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Main JavaScript File -->
-<script src="js/main.js"></script>
+        <!-- Main JavaScript File -->
+        <script src="js/main.js"></script>
 
-  <%= javascript_include_tag('wow.min.js') %>
-    <%= javascript_include_tag('easing.min.js') %>
-  <%= javascript_include_tag('waypoints.min.js') %>
-  <%= javascript_include_tag('owl.carousel.min.js') %>
-  <%= javascript_include_tag('main.js') %>
-
-
+        <%= javascript_include_tag('wow.min.js') %>
+        <%= javascript_include_tag('easing.min.js') %>
+        <%= javascript_include_tag('waypoints.min.js') %>
+        <%= javascript_include_tag('owl.carousel.min.js') %>
+        <%= javascript_include_tag('main.js') %>
 </body>
 
 </html>
