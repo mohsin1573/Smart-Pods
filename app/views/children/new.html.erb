@@ -1,4 +1,8 @@
-<h1>Add a New Child</h1>
-<%= render 'form', child: @child %>
-<%= link_to 'All Children', children_path %>
-
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="mb-4">Add a New Child</h1>
+      <%= render 'form', child: @child %>
+      <%= link_to "All Children Page<i class='fa fa-arrow-right ms-3'></i>" .html_safe, children_path, class: "btn btn-primary rounded-pill px-3 ms-lg-3", style: "text-decoration: none;" %>    </div>
+  </div>
+</div>
