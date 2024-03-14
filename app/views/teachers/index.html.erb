@@ -1,11 +1,30 @@
-<h1>List of Teachers</h1>
-<ul>
-  <% @teachers.each do |teacher| %>
-    <li>
-      <%= link_to teacher.name, teacher %>
-      <%= link_to 'Edit', edit_teacher_path(teacher) %>
-      <%= button_to 'Delete', teacher, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </li>
-  <% end %>
-</ul>
-<%= link_to 'New Teacher', new_teacher_path %>
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+      <h1 class="mb-3">Popular Teachers</h1>
+      <p>Enroll your child in classes led by our popular teachers, known for their dedication and ability to inspire students.</p>
+    </div>
+    <div class="row g-4">
+      <% @teachers.reverse_each do |teacher| %>
+        <div class="col-lg-4 col-md-6 wow fadeInUp">
+          <div class="team-item position-relative">
+            <% if teacher.pictures.present? && teacher.pictures.first.image.attached? %>
+              <%= image_tag teacher.pictures.first.image, alt: "...", class: "img-fluid rounded-circle w-50" %>
+            <% else %>
+              <%= image_tag 'team-2.jpg', alt: "Default Image", class: "img-fluid rounded-circle w-50" %>
+            <% end %>
+            <div class="team-text">
+              <h3>
+                <%= link_to teacher.name, teacher %>
+              </h3>
+              <p>
+                <%= teacher.education %>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= paginate @teachers %>
