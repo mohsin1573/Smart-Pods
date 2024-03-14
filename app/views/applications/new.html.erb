@@ -1,13 +1,24 @@
-<h1>Apply for a Pod</h1>
-
-<%= form_with(model: @application, url: applications_path, local: true) do |form| %>
-<%= form.hidden_field :parent_id, value: current_parent.id %>
-
-<%= form.label :pod_id, "Select Pod" %>
-<%= form.collection_select :pod_id, Pod.all, :id, :name, prompt: "Select Pod" %>
-
-<%= form.label :child_id, "Select Child" %>
-<%= form.collection_select :child_id, current_parent.children, :id, :name, prompt: "Select Child" %>
-
-<%= form.submit "Apply" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="mt-5 mb-4">Apply for a Pod</h1>
+      <%= form_with(model: @application, url: applications_path, local: true) do |form| %>
+        <div class="mb-3">
+          <%= form.hidden_field :parent_id, value: current_parent.id %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :pod_id, "Select Pod", class: "form-label" %>
+          <%= form.collection_select :pod_id, Pod.all, :id, :name, { prompt: "Select Pod" }, class: "form-select" %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :child_id, "Select Child", class: "form-label" %>
+          <%= form.collection_select :child_id, current_parent.children, :id, :name, { prompt: "Select Child" }, class: "form-select" %>
+        </div>
+        <div class="mb-3">
+          <%= form.submit "Apply", class: "btn btn-primary rounded-pill px-3 ms-lg-3" %>
+        </div>
+      <% end %>
+      <%= link_to "Back to Home Page<i class='fa fa-arrow-right ms-3'></i>" .html_safe, root_path, class: "btn btn-primary rounded-pill px-3 ms-lg-3", style: "text-decoration: none;" %>
+    </div>
+  </div>
+</div>
