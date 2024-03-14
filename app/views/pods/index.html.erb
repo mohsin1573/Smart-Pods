@@ -1,10 +1,72 @@
-<h1>List of Pods</h1>
-<ul>
-  <% @pods.each do |pod| %>
-    <li>
-      <%= link_to pod.name, pod %>
-      <%= pod.status %> - <%= pod.grade %>
-    </li>
-  <% end %>
-</ul>
+<div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">Pods List</h1>
+                    <p>Explore our diverse range of pods designed to inspire and educate your child in a supportive
+                        environment.</p>
+                </div>
+                <div class="row g-4">
+                    <% @pods.each do |pod| %>
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="classes-item">
+                                <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                    <% if pod.pictures.present? && pod.pictures.first.image.attached? %>
+                                        <%= image_tag pod.pictures.first.image, alt: "...", class: "img-fluid rounded-circle" %>
+                                    <% else %>
+                                        <%= image_tag 'classes-3.jpg', alt: "Default Image", class: "img-fluid rounded-circle" %>
+                                    <% end %>
+                                </div>
+                                <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                    <a class="d-block text-center h3 mt-3 mb-4" href="<%= pod_path(pod) %>">
+                                        <%= pod.name %>
+                                    </a>
+                                    <div class="d-flex align-items-center justify-content-between mb-4">
+                                        <div class="d-flex align-items-center">
+                                            <% if pod.teacher.present? && pod.teacher.pictures.present? && pod.teacher.pictures.first.image.attached? %>
+                                                <%= image_tag(pod.teacher.pictures.first.image, class: "rounded-circle flex-shrink-0", style: "width: 45px; height: 45px;", alt: "" ) %>
+                                            <% end %>
+                                                        <div class="ms-3">
+                                                            <h6 class="text-primary mb-1">
+                                                                <%= pod.teacher.name %>
+                                                            </h6>
+                                                            <small>Teacher</small>
+                                                        </div>
+                                        </div>
+                                        <span class="bg-primary text-white rounded-pill py-2 px-3" href="">
+                                            <%= pod.status %>
+                                        </span>
+                                    </div>
+                                    <div class="row g-1">
+                                        <div class="col-4">
+                                            <div class="border-top border-3 border-primary pt-2">
+                                                <h6 class="text-primary mb-1">Grade:</h6>
+                                                <small>
+                                                    <%= pod.grade %>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="border-top border-3 border-success pt-2">
+                                                <h6 class="text-success mb-1">Zipcode:</h6>
+                                                <small>
+                                                    <%= pod.address.zipcode %>
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="border-top border-3 border-warning pt-2">
+                                                <h6 class="text-warning mb-1">State:</h6>
+                                                <small>
+                                                    <%= pod.address.state %>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
 <%= paginate @pods %>
