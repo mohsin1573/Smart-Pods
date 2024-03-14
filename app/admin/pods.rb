@@ -14,7 +14,11 @@ ActiveAdmin.register Pod do
       pod.address&.zipcode
     end
     column :picture do |pod|
-      image_tag pod.pictures.first.image, size: '50x50' if pod.pictures.present?
+      if pod.pictures.present? && pod.pictures.first.image.attached?
+        image_tag pod.pictures.first.image, size: '50x50'
+      else
+        image_tag 'classes-3.jpg', size: '50x50'
+      end
     end
     column :teacher
     actions
@@ -23,12 +27,15 @@ ActiveAdmin.register Pod do
   show do
     attributes_table do
       row :name
-      row :bio
-      row :education
       row :grade
+      row :status
       row :phone_number
       row :picture do |pod|
-        image_tag pod.pictures.first.image, size: '50x50' if pod.pictures.present?
+        if pod.pictures.present? && pod.pictures.first.image.attached?
+          image_tag pod.pictures.first.image, size: '50x50'
+        else
+          image_tag 'classes-3.jpg', size: '50x50'
+        end
       end
     end
   end

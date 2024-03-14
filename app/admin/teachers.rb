@@ -33,7 +33,11 @@ ActiveAdmin.register Teacher do
       teacher.address&.zipcode
     end
     column :picture do |teacher|
-      image_tag teacher.pictures.first.image, size: '50x50' if teacher.pictures.present?
+    if teacher.pictures.present?
+      image_tag teacher.pictures.first.image, size: '50x50'
+    else
+      image_tag 'team-2.jpg', size: '50x50'
+    end
     end
     column :teacher
     actions
@@ -47,10 +51,10 @@ ActiveAdmin.register Teacher do
       row :grade
       row :phone_number
       row :picture do |teacher|
-        if teacher.pictures.first.image.present?
+        if teacher.pictures.present?
           image_tag teacher.pictures.first.image, size: '50x50'
         else
-          "No picture available"
+          image_tag 'team-2.jpg', size: '50x50'
         end
       end
     end
