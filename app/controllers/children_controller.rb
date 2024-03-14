@@ -3,6 +3,7 @@ class ChildrenController < ApplicationController
 
   def index
     @children = Child.all
+    @children = Child.page(params[:page]).per(10)
   end
 
   def new
