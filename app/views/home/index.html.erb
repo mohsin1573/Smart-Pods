@@ -209,7 +209,7 @@
                                     <% if pod.pictures.present? && pod.pictures.first.image.attached? %>
                                         <%= image_tag pod.pictures.first.image, alt: "...", class: "img-fluid rounded-circle" %>
                                     <% else %>
-                                        <%= image_tag 'classes-3.jpg', alt: "Default Image", class: "img-fluid" %>
+                                        <%= image_tag 'classes-3.jpg', alt: "Default Image", class: "img-fluid rounded-circle" %>
                                     <% end %>
                                 </div>
                                 <div class="bg-light rounded p-4 pt-5 mt-n5">
