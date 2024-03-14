@@ -1,20 +1,26 @@
-<%= form_with(model: @child, local: true) do |form| %>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= form_with(model: @child, local: true) do |form| %>
+        <div class="mb-3">
+          <%= form.label :name, class: "form-label" %>
+          <%= form.text_field :name, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :grade, class: "form-label" %>
+          <%= form.number_field :grade, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+          <%= form.fields_for :pictures do |picture_form| %>
+            <%= picture_form.label :image, class: "form-label" %>
+            <%= picture_form.file_field :image, class: "form-control" %>
+          <% end %>
+        </div>
+        <%= form.hidden_field :parent_id, value: current_parent.id %>
+        <div class="mb-3">
+          <%= form.submit "Add Child", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :grade %>
-    <%= form.number_field :grade %>
-  </div>
-
-  <%= form.fields_for :pictures do |picture_form| %>
-    <%= picture_form.label :image %>
-    <%= picture_form.file_field :image %>
-  <% end %>
-
-  <%= form.hidden_field :parent_id, value: current_parent.id %>
-
-  <%= form.submit "Add Child" %>
-<% end %>
+</div>
