@@ -58,9 +58,11 @@
             </div>
         </section>
 
-        <h2>Reviews:</h2>
+        <div class="card mt-3">
+    <div class="card-body">
+      <h2>Reviews:</h2>
       <% @pod.reviews.each do |review| %>
-        <div>
+        <div class="mb-3">
           <span>Review by: <%= review.parent.email %></span>
           <p><strong>Rating:</strong> <%= review.rating %><br><%= review.content %></p>
           <% if review.parent == current_parent %>
@@ -71,9 +73,27 @@
         <hr>
       <% end %>
       <% if parent_signed_in? %>
-        <%= link_to "Write a Review", new_pod_review_path(@pod), class: "btn btn-success" %>
+        <button id="write-review-btn" class="btn btn-success">Write a Review</button>
+        <div id="review-form" style="display: none;">
+          <%= render 'reviews/form', pod: @pod %>
+        </div>
       <% end %>
     </div>
   </div>
   <%= link_to "Back to Pods", pods_path, class: "btn btn-secondary mt-3" %>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const writeReviewBtn = document.getElementById('write-review-btn');
+    const reviewForm = document.getElementById('review-form');
+
+    writeReviewBtn.addEventListener('click', function() {
+      if (reviewForm.style.display === 'none') {
+        reviewForm.style.display = 'block';
+      } else {
+        reviewForm.style.display = 'none';
+      }
+    });
+  });
+</script>
