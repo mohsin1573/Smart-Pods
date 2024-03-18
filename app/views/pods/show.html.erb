@@ -1,33 +1,34 @@
-<h1><%= @pod.name %></h1>
-<% @pod.pictures.each do |picture| %>
-  <%= image_tag picture.image, alt: "Pod Image", class: "img-fluid" %>
-<% end %>
-<p><%= @pod.status %></p>
-<h3>Address</h3>
-<p>Location: <%= @pod.address.city %></p>
-<p>Location: <%= @pod.address.state %></p>
-<p>Location: <%= @pod.address.street %></p>
-<p>Location: <%= @pod.address.zipcode %></p>
-<p>Grade: <%= @pod.grade %></p>
-<%= link_to 'Edit', edit_pod_path(@pod) %> |
-<%= link_to 'Back', pods_path %>
-<%= button_to 'Delete', @pod, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-<h2>Reviews:</h2>
-<% @pod.reviews.each do |review| %>
-  <div>
-    <span> Review by: <%= review.parent.email %> </span>
-    <p><strong>Rating:</strong> <%= review.rating %><br><%= review.content %></p>
-    <% if review.parent == current_parent %>
-      <%= link_to 'Edit Review', edit_pod_review_path(@pod, review) %> |
-      <%= button_to 'Delete Review', [@pod, review], method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1><%= @pod.name %></h1>
+         <% if @pod.pictures.present? && @pod.pictures.first.image.attached? %>
+            <%= image_tag @pod.pictures.first.image, alt: "Pod Image", class: "img-fluid rounded" %>
+          <% else %>
+             <%= image_tag 'classes-3.jpg', alt: "Pod Image", class: "img-fluid rounded" %>
+          <% end %>
+      <p><strong>Status:</strong> <%= @pod.status %></p>
+      <h3>Address</h3>
+      <p><strong>Location:</strong> <%= @pod.address.street %>, <%= @pod.address.city %>, <%= @pod.address.state %> <%= @pod.address.zipcode %></p>
+      <p><strong>Grade:</strong> <%= @pod.grade %></p>
+    </div>
+    <div class="col-md-6">
+      <h2>Reviews:</h2>
+      <% @pod.reviews.each do |review| %>
+        <div>
+          <span>Review by: <%= review.parent.email %></span>
+          <p><strong>Rating:</strong> <%= review.rating %><br><%= review.content %></p>
+          <% if review.parent == current_parent %>
+            <%= link_to 'Edit Review', edit_pod_review_path(@pod, review), class: "btn btn-primary btn-sm" %> |
+            <%= button_to 'Delete Review', [@pod, review], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+          <% end %>
+        </div>
+        <hr>
+      <% end %>
+      <% if parent_signed_in? %>
+        <%= link_to "Write a Review", new_pod_review_path(@pod), class: "btn btn-success" %>
+      <% end %>
+    </div>
   </div>
-  <hr>
-<% end %>
-
-<% if parent_signed_in? %>
-  <%= link_to "Write a Review", new_pod_review_path(@pod) %>
-<% end %>
-
-<%= link_to "Back to Pods", pods_path %>
+  <%= link_to "Back to Pods", pods_path, class: "btn btn-secondary mt-3" %>
+</div>
