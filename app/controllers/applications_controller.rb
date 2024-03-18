@@ -1,4 +1,9 @@
 class ApplicationsController < ApplicationController
+  def index
+    @applications = current_parent.applications.includes(:pod, :child).order(created_at: :desc)
+    @application = Application.new
+  end
+
   def new
     @application = Application.new
   end
@@ -10,6 +15,12 @@ class ApplicationsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @application = current_parent.applications.find(params[:id])
+    @application.destroy
+    redirect_to applications_path, notice: "Application deleted successfully."
   end
 
   private

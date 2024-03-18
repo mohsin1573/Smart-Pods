@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :pods
   resources :teachers
   resources :children
-  resources :applications, only: [:new, :create]
+  resources :applications
   resources :pods do
     resources :reviews
   end
