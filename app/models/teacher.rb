@@ -5,6 +5,7 @@ class Teacher < ApplicationRecord
   has_many :pictures, as: :imageable, dependent: :destroy
   has_one :address, as: :addressable, dependent: :destroy
   accepts_nested_attributes_for :pictures
+  accepts_nested_attributes_for :address
 
   def self.ransackable_associations(auth_object = nil)
     ["pictures", "pods", "address"]
