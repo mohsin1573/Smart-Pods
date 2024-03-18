@@ -51,8 +51,8 @@
                         <%= link_to "Apply for Pod", new_application_path, class: "nav-item nav-link" %>
                         <%= link_to "Add Child", new_child_path, class: "nav-item nav-link" %>
                     <% else %>
-                        <%= link_to "About Us", new_application_path, class: "nav-item nav-link" %>
-                        <%= link_to "Contact Us", new_application_path, class: "nav-item nav-link"%>
+                        <%= link_to "About Us", root_path, class: "nav-item nav-link" %>
+                        <%= link_to "Contact Us", root_path, class: "nav-item nav-link"%>
                         <%= link_to "Login", new_parent_session_path, class: "nav-item nav-link" %>
                     <% end %>
                 </div>
@@ -66,149 +66,46 @@
 
         <!-- Carousel Start -->
         <div class="container-fluid p-0 mb-5">
-    <div class="owl-carousel header-carousel position-relative">
-        <div class="owl-carousel-item position-relative">
-            <%= image_tag "carousel-1.jpg", class: "img-fluid", alt: "" %>
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                style="background: rgba(0, 0, 0, .2);">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-10 col-lg-8">
-                            <h1 class="display-2 text-white animated slideInDown mb-4">Empower Your Child's
-                                Learning Journey</h1>
-                            <p class="fs-5 fw-medium text-white mb-4 pb-2">Find the perfect educational match for
-                                your child with our diverse range of MicroSchools, each designed to nurture and
-                                inspire young minds.</p>
-                            <div class="position-relative">
-                                <form action="<%= root_path %>" method="get">
-                                    <div class="input-group" style="width: 100%;">
-                                        <div class="form-outline">
-                                            <input type="search" id="search" name="zipcode" class="form-control" placeholder="Enter zipcode" />
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="fas fa-search"></i>
-                                        </button>
+            <div class="owl-carousel header-carousel position-relative">
+                <div class="owl-carousel-item position-relative">
+                    <%= image_tag "carousel-1.jpg", class: "img-fluid", alt: "" %>
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                        style="background: rgba(0, 0, 0, .2);">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8">
+                                    <h1 class="display-2 text-white animated slideInDown mb-4">Empower Your Child's
+                                        Learning Journey</h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Find the perfect educational match for
+                                        your child with our diverse range of MicroSchools, each designed to nurture and
+                                        inspire young minds.</p>
+                                    <div class="position-relative">
+                                        <form action="<%= root_path %>" method="get">
+                                            <div class="input-group" style="width: 100%;">
+                                                <div class="form-outline">
+                                                    <input type="search" id="search" name="zipcode" class="form-control" placeholder="Enter zipcode" />
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
-                                </form>
+                                    <% if !current_parent %>
+                                       <div class="mt-4">
+                                          <%= link_to 'Join US', new_parent_registration_path, class: "btn btn-primary rounded-pill py-sm-3  px-sm-5 me-3 animated slideInLeft", style: "text-decoration: none;" %>
+                                          <%= link_to 'Already have an Account?', new_parent_session_path, class: "btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight", style: "text-decoration: none;" %>
+                                       </div>
+                                    <% end %>
+                                </div>
                             </div>
-                            <% if !current_parent %>
-                                <%= link_to 'Join US', new_parent_registration_path, class: "btn btn-primary rounded-pill py-sm-3  px-sm-5 me-3 animated slideInLeft", style: "text-decoration: none;" %>
-                                <%= link_to 'Already have an Account?', new_parent_session_path, class: "btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight", style: "text-decoration: none;" %>
-                            <% end %>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="owl-carousel-item position-relative">
-            <%= image_tag "carousel-2.jpg", class: "img-fluid", alt: "" %>
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                style="background: rgba(0, 0, 0, .2);">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-10 col-lg-8">
-                            <h1 class="display-2 text-white animated slideInDown mb-4">Transformative Education</h1>
-                            <p class="fs-5 fw-medium text-white mb-4 pb-2">Experience a new era of education with
-                                our MicroSchools, where small class sizes and personalized attention unlock your
-                                child's full potential.</p>
-                            <div class="position-relative">
-                                <form action="<%= root_path %>" method="get">
-                                    <div class="input-group" style="width: 100%;">
-                                        <div class="form-outline">
-                                            <input type="search" id="search" name="zipcode" class="form-control" placeholder="Enter zipcode" />
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                            <% if !current_parent %>
-                                <%= link_to 'Join US', new_parent_registration_path, class: "btn btn-primary rounded-pill py-sm-3  px-sm-5 me-3 animated slideInLeft", style: "text-decoration: none;" %>
-                                <%= link_to 'Already have an Account?', new_parent_session_path, class: "btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight", style: "text-decoration: none;" %>
-                            <% end %>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
         <!-- Carousel End -->
-
-
-        <!-- About Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <h1 class="mb-4">Learn More About Our Work And Our Cultural Activities</h1>
-                        <p>Our art programs encourage creativity and self-expression. Students explore various mediums
-                            and styles, allowing them to unleash their artistic talents and develop a lifelong
-                            appreciation for the arts.</p>
-                        <p class="mb-4">Join our community of engaged parents and dedicated teachers by applying for a
-                            pod at Smart Pods. Pods provide a unique learning environment where children can thrive
-                            academically, socially, and emotionally.Each pod at Smart Pods is tailored to meet the
-                            individual needs of every child. Our small class sizes and personalized curriculum ensure
-                            that each student receives the attention and support they deserve.</p>
-                    </div>
-                    <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="row">
-                            <div class="col-12 text-center">
-                                <%= image_tag("about-1.jpg", class: "img-fluid w-75 rounded-circle bg-light p-3",
-                                    alt: "" ) %>
-                            </div>
-                            <div class="col-6 text-start" style="margin-top: -150px;">
-                                <%= image_tag("about-2.jpg", class: "img-fluid w-100 rounded-circle bg-light p-3",
-                                    alt: "" ) %>
-                            </div>
-                            <div class="col-6 text-end" style="margin-top: -150px;">
-                                <%= image_tag("about-3.jpg", class: "img-fluid w-100 rounded-circle bg-light p-3",
-                                    alt: "" ) %>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- About End -->
-
-
-        <!-- Call To Action Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="bg-light rounded">
-                    <div class="row g-0">
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s" style="min-height: 400px;">
-                            <div class="position-relative h-100">
-                                <%= image_tag("call-to-action.jpg", class: "position-absolute w-100 h-100 rounded",
-                                    style: "object-fit: cover;" ) %>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                            <div class="h-100 d-flex flex-column justify-content-center p-5">
-                                <h1 class="mb-4">Apply for Pod</h1>
-                                <p class="mb-4">Join our community of engaged parents and dedicated teachers by applying
-                                    for a pod at Smart Pods. Pods provide a unique learning environment where children
-                                    can thrive academically, socially, and emotionally.Each pod at Smart Pods is
-                                    tailored to meet the individual needs of every child. Our small class sizes and
-                                    personalized curriculum ensure that each student receives the attention and support
-                                    they deserve.
-                                </p>
-                                <% if parent_signed_in? %>
-                                    <%= link_to "Apply Now", new_application_path, class: "btn btn-primary py-3 px-5" %>
-                                <% else %>
-                                    <%= link_to "Apply Now", new_parent_session_path, class: "btn btn-primary py-3 px-5" %>
-                                <% end %>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Call To Action End -->
-
 
         <!-- Classes Start -->
         <div class="container-xxl py-5">
@@ -347,6 +244,78 @@
         </div>
 
         <!-- Classes End -->
+
+
+        <!-- About Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="mb-4">Learn More About Our Work And Our Cultural Activities</h1>
+                        <p>Our art programs encourage creativity and self-expression. Students explore various mediums
+                            and styles, allowing them to unleash their artistic talents and develop a lifelong
+                            appreciation for the arts.</p>
+                        <p class="mb-4">Join our community of engaged parents and dedicated teachers by applying for a
+                            pod at Smart Pods. Pods provide a unique learning environment where children can thrive
+                            academically, socially, and emotionally.Each pod at Smart Pods is tailored to meet the
+                            individual needs of every child. Our small class sizes and personalized curriculum ensure
+                            that each student receives the attention and support they deserve.</p>
+                    </div>
+                    <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <%= image_tag("about-1.jpg", class: "img-fluid w-75 rounded-circle bg-light p-3",
+                                    alt: "" ) %>
+                            </div>
+                            <div class="col-6 text-start" style="margin-top: -150px;">
+                                <%= image_tag("about-2.jpg", class: "img-fluid w-100 rounded-circle bg-light p-3",
+                                    alt: "" ) %>
+                            </div>
+                            <div class="col-6 text-end" style="margin-top: -150px;">
+                                <%= image_tag("about-3.jpg", class: "img-fluid w-100 rounded-circle bg-light p-3",
+                                    alt: "" ) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+
+        <!-- Call To Action Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="bg-light rounded">
+                    <div class="row g-0">
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s" style="min-height: 400px;">
+                            <div class="position-relative h-100">
+                                <%= image_tag("call-to-action.jpg", class: "position-absolute w-100 h-100 rounded",
+                                    style: "object-fit: cover;" ) %>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                            <div class="h-100 d-flex flex-column justify-content-center p-5">
+                                <h1 class="mb-4">Apply for Pod</h1>
+                                <p class="mb-4">Join our community of engaged parents and dedicated teachers by applying
+                                    for a pod at Smart Pods. Pods provide a unique learning environment where children
+                                    can thrive academically, socially, and emotionally.Each pod at Smart Pods is
+                                    tailored to meet the individual needs of every child. Our small class sizes and
+                                    personalized curriculum ensure that each student receives the attention and support
+                                    they deserve.
+                                </p>
+                                <% if parent_signed_in? %>
+                                    <%= link_to "Apply Now", new_application_path, class: "btn btn-primary py-3 px-5" %>
+                                <% else %>
+                                    <%= link_to "Apply Now", new_parent_session_path, class: "btn btn-primary py-3 px-5" %>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Call To Action End -->
 
 
         <!-- Team Start -->
