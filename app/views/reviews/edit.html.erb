@@ -1,9 +1,22 @@
-<%= form_with(model: [@pod, @review], local: true) do |form| %>
-  <%= form.label :content %>
-  <%= form.text_area :content %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1>Write a Review</h1>
+      <%= form_with(model: [@pod, @review], local: true) do |form| %>
+        <div class="mb-3">
+          <%= form.label :content, class: "form-label" %>
+          <%= form.text_area :content, class: "form-control", rows: 3 %>
+        </div>
 
-  <%= form.label :rating %>
-  <%= form.number_field :rating, in: 1..5 %>
+        <div class="mb-3">
+          <%= form.label :rating, class: "form-label" %>
+          <%= form.number_field :rating, in: 1..5, class: "form-control" %>
+        </div>
 
-  <%= form.submit %>
-<% end %>
+        <div class="text-center">
+          <%= form.submit "Submit Review", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
