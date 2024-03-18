@@ -3,10 +3,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root 'home#index'
   devise_for :parents
-  resources :pods
-  resources :teachers
-  resources :children
-  resources :applications
+  resources :pods, :teachers, :children, :applications
   resources :pods do
     resources :reviews
   end
