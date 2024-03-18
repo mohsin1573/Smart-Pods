@@ -4,4 +4,5 @@ class Child < ApplicationRecord
   accepts_nested_attributes_for :pictures
   has_many :applications, dependent: :destroy
   has_one :address, as: :addressable, dependent: :destroy
+  accepts_nested_attributes_for :address
 end

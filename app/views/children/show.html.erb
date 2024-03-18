@@ -1,18 +1,50 @@
-<div class="container py-5">
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <h1 class="text-center mb-4"><%= @child.name %></h1>
-      <div class="text-center">
-        <% @child.pictures.each do |picture| %>
-          <%= image_tag picture.image, alt: "Child Image", class: "img-fluid rounded-circle w-50 mb-3" %>
-        <% end %>
-      </div>
-      <p class="text-center">Grade: <%= @child.grade %></p>
-      <div class="text-center">
-        <%= link_to 'Edit', edit_child_path(@child), class: "btn btn-primary me-2" %>
-        <%= link_to 'Back', children_path, class: "btn btn-secondary" %>
-        <%= button_to 'Delete', @child, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger ms-2", style: "display: inline-block;" %>
-      </div>
-    </div>
-  </div>
-</div>
+<head>
+      <%= stylesheet_link_tag "profile" %>
+
+<head>
+<section class="section about-section gray-bg" id="about">
+            <div class="container">
+                <div class="row align-items-center flex-row-reverse">
+                    <div class="col-lg-6">
+                        <div class="about-text go-to">
+                            <h3 class="dark-color">About <%= @child.name %></h3>
+                            <div class="row about-list">
+                                <div class="col-md-6">
+                                    <div class="media">
+                                        <label>Grade</label>
+                                        <p><%= @child.grade %></p>
+                                    </div>
+                                    <div class="media">
+                                        <label>City</label>
+                                        <p><%= @child.address.city %></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="media">
+                                        <label>Zip-Code</label>
+                                        <p><%= @child.address.zipcode %></p>
+                                    </div>
+                                    <div class="media">
+                                        <label>Street</label>
+                                        <p><%= @child.address.street %></p>
+                                    </div>
+                                     <div class="media">
+                                        <label>State</label>
+                                        <p><%= @child.address.state %></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-avatar">
+                            <% if @child.pictures.present? && @child.pictures.first.image.attached? %>
+                              <%= image_tag @child.pictures.first.image, alt: "...", class: "img-fluid rounded-circle" %>
+                            <% else %>
+                              <%= image_tag 'team-2.jpg', alt: "Default Image", class: "img-fluid rounded-circle" %>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

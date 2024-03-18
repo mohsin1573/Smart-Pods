@@ -3,17 +3,39 @@
     <div class="col">
       <%= form_with(model: @child, local: true) do |form| %>
         <div class="mb-3">
-          <%= form.label :name, class: "form-label" %>
-          <%= form.text_field :name, class: "form-control" %>
+          <%= form.label :name, "Child's Name", class: "form-label" %>
+          <%= form.text_field :name, class: "form-control", placeholder: "Enter child's name" %>
         </div>
         <div class="mb-3">
-          <%= form.label :grade, class: "form-label" %>
-          <%= form.number_field :grade, class: "form-control" %>
+          <%= form.label :grade, "Grade Level", class: "form-label" %>
+          <%= form.number_field :grade, class: "form-control", placeholder: "Enter grade level" %>
+        </div>
+        <div class="mb-3">
+          <%= form.fields_for :address, @child.address || @child.build_address do |address_form| %>
+            <div class="mb-3">
+              <%= address_form.label :street, "Street Address", class: "form-label" %>
+              <%= address_form.text_field :street, class: "form-control", placeholder: "Enter street address" %>
+            </div>
+            <div class="mb-3">
+              <%= address_form.label :city, "City", class: "form-label" %>
+              <%= address_form.text_field :city, class: "form-control", placeholder: "Enter city" %>
+            </div>
+            <div class="mb-3">
+              <%= address_form.label :state, "State", class: "form-label" %>
+              <%= address_form.text_field :state, class: "form-control", placeholder: "Enter state" %>
+            </div>
+            <div class="mb-3">
+              <%= address_form.label :zipcode, "Zip Code", class: "form-label" %>
+              <%= address_form.text_field :zipcode, class: "form-control", placeholder: "Enter zip code" %>
+            </div>
+          <% end %>
         </div>
         <div class="mb-3">
           <%= form.fields_for :pictures do |picture_form| %>
-            <%= picture_form.label :image, class: "form-label" %>
-            <%= picture_form.file_field :image, class: "form-control" %>
+            <div class="mb-3">
+              <%= picture_form.label :image, "Child's Picture", class: "form-label" %>
+              <%= picture_form.file_field :image, class: "form-control", placeholder: "Upload child's picture" %>
+            </div>
           <% end %>
         </div>
         <%= form.hidden_field :parent_id, value: current_parent.id %>
