@@ -16,6 +16,35 @@
   </head>
 
   <body>
+<!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
+            <a href="index.html" class="navbar-brand">
+                <h1 class="m-0 text-primary"><i class="fa fa-book-reader me-3"></i>Smart Pods</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav flex-grow-1" style="margin-left: 250px">
+                        <%= link_to "Home", root_path, class: "nav-item nav-link" %>
+                    <% if parent_signed_in? %>
+                        <%= link_to "Teachers", teachers_path, class: "nav-item nav-link" %>
+                        <%= link_to "Pods", pods_path, class: "nav-item nav-link" %>
+                        <%= link_to "Apply for Pod", new_application_path, class: "nav-item nav-link" %>
+                        <%= link_to "Add Child", new_child_path, class: "nav-item nav-link" %>
+                    <% else %>
+                        <%= link_to "About Us", root_path, class: "nav-item nav-link" %>
+                        <%= link_to "Contact Us", root_path, class: "nav-item nav-link"%>
+                        <%= link_to "Login", new_parent_session_path, class: "nav-item nav-link" %>
+                    <% end %>
+                </div>
+                <% if parent_signed_in? %>
+                    <%= button_to "Log Out", destroy_parent_session_path, method: :delete, class: "btn btn-primary rounded-pill px-3 ms-lg-3", style: "text-decoration: none;" %>
+                <% else %>
+                    <%= link_to "Join Us<i class='fa fa-arrow-right ms-3'></i>" .html_safe, new_parent_registration_path, class: "btn btn-primary rounded-pill px-3 ms-lg-3", style: "text-decoration: none;" %>
+                <% end %>
+            </div>
+        </nav>
 
 <% if flash[:notice].present? %>
   <div class="alert alert-success" role="alert">
