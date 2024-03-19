@@ -7,8 +7,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <div class="navbar-nav flex-grow-1" style="margin-left: 250px">
-        <%= link_to "Home", root_path, class: "nav-item nav-link" %>
+      <div class="navbar-nav flex-grow-1" style="margin-left: 950px">
         <% if parent_signed_in? %>
         <%= link_to "Teachers", teachers_path, class: "nav-item nav-link" %>
         <%= link_to "Pods", pods_path, class: "nav-item nav-link" %>
@@ -20,17 +19,13 @@
             <%= link_to "Apply for Pod", new_application_path %>
           </div>
         </div>
+          <%= button_to "Log Out", destroy_parent_session_path, method: :delete, class: "btn nav-link", style: "text-decoration: none; padding: 6px;" %>
         <% else %>
-        <%= link_to "About Us", root_path, class: "nav-item nav-link" %>
-        <%= link_to "Contact Us", root_path, class: "nav-item nav-link"%>
+        <%= link_to "Pods", pods_path, class: "nav-item nav-link" %>
+        <%= link_to "Teachers", teachers_path, class: "nav-item nav-link" %>
         <%= link_to "Login", new_parent_session_path, class: "nav-item nav-link" %>
+        <%= link_to "Sign Up", new_parent_registration_path, class: "nav-item nav-link", style: "text-decoration: none;" %>
         <% end %>
       </div>
-      <% if parent_signed_in? %>
-      <%= button_to "Log Out", destroy_parent_session_path, method: :delete, class: "btn btn-primary rounded-pill px-3 ms-lg-3", style: "text-decoration: none;" %>
-      <% else %>
-      <%= link_to "Join Us<i class='fa fa-arrow-right ms-3'></i>".html_safe, new_parent_registration_path, class: "btn btn-primary rounded-pill px-3 ms-lg-3", style: "text-decoration: none;" %>
-      <% end %>
-    </div>
   </nav>
 </header>
