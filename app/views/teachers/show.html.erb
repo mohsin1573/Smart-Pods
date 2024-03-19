@@ -30,28 +30,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <h3 class="dark-color">Address</h3>
-                            <div class="row about-list">
-                                <div class="col-md-6">
-                                    <div class="media">
-                                        <label>State</label>
-                                        <p><%= @teacher.address.state %></p>
-                                    </div>
-                                    <div class="media">
-                                        <label>City</label>
-                                        <p><%= @teacher.address.city %></p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="media">
-                                        <label>Street</label>
-                                        <p><%= @teacher.address.street %></p>
-                                    </div>
-                                    <div class="media">
-                                        <label>ZipCode</label>
-                                        <p><%= @teacher.address.zipcode %></p>
-                                    </div>
-                                </div>
+                            <br><br>
+                            <h4 class="dark-color">Address</h4>
+                            <div class="media">
+                                <p><%= [@teacher.address.street, @teacher.address.city, @teacher.address.state, @teacher.address.zipcode].compact.join(', ') %></p>
                             </div>
                         </div>
                     </div>
