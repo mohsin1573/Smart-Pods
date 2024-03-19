@@ -1,17 +1,29 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <h1 class="text-center">All Children</h1>
-      <ul class="list-group">
-        <% @children.each do |child| %>
-          <li class="list-group-item">
-            <%= link_to child.name, child_path(child) %>
-          </li>
-        <% end %>
-      </ul>
-      <div class="text-center mt-3">
-        <%= link_to "Back to Home<i class='fa fa-arrow-right ms-3'></i>".html_safe, root_path, class: "btn btn-primary rounded-pill px-3", style: "text-decoration: none;" %>
-      </div>
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+      <h1 class="mb-3">All Children</h1>
+      <p>Enroll your child in classes led by our popular teachers, known for their dedication and ability to inspire students.</p>
+    </div>
+    <div class="row g-4">
+      <% @children.reverse_each do |child| %>
+        <div class="col-lg-4 col-md-6 wow fadeInUp">
+          <div class="team-item position-relative">
+            <% if child.pictures.present? && child.pictures.first.image.attached? %>
+              <%= image_tag child.pictures.first.image, alt: "...", class: "img-fluid rounded-circle w-50" %>
+            <% else %>
+              <%= image_tag 'team-2.jpg', alt: "Default Image", class: "img-fluid rounded-circle w-50" %>
+            <% end %>
+            <div class="team-text">
+              <h3>
+                <%= link_to child.name, child %>
+              </h3>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="text-center mt-3">
+      <%= link_to "Back to Home<i class='fa fa-arrow-right ms-3'></i>".html_safe, root_path, class: "btn btn-primary rounded-pill px-3", style: "text-decoration: none;" %>
     </div>
   </div>
 </div>
