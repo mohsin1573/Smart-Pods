@@ -7,17 +7,35 @@
                 <div class="row align-items-center flex-row-reverse">
                     <div class="col-lg-6">
                         <div class="about-text go-to">
-                            <h3 class="dark-color">About <%= @teacher.name %></h3>
-                            <h6 class="theme-color lead"><%= @teacher.bio %></h6>
+                            <h3 class="dark-color">Personal Information</h3>
                             <div class="row about-list">
                                 <div class="col-md-6">
                                     <div class="media">
-                                        <label>Education</label>
-                                        <p><%= @teacher.education %></p>
+                                        <label>Name</label>
+                                        <p><%= @teacher.name %></p>
                                     </div>
                                     <div class="media">
                                         <label>Grade</label>
                                         <p><%= @teacher.grade %></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="media">
+                                        <label>Phone</label>
+                                        <p><%= @teacher.phone_number %></p>
+                                    </div>
+                                    <div class="media">
+                                        <label>Education</label>
+                                        <p><%= @teacher.education %></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="dark-color">Address</h3>
+                            <div class="row about-list">
+                                <div class="col-md-6">
+                                    <div class="media">
+                                        <label>State</label>
+                                        <p><%= @teacher.address.state %></p>
                                     </div>
                                     <div class="media">
                                         <label>City</label>
@@ -26,16 +44,12 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="media">
-                                        <label>Zip-Code</label>
-                                        <p><%= @teacher.address.zipcode %></p>
-                                    </div>
-                                    <div class="media">
                                         <label>Street</label>
                                         <p><%= @teacher.address.street %></p>
                                     </div>
-                                     <div class="media">
-                                        <label>State</label>
-                                        <p><%= @teacher.address.state %></p>
+                                    <div class="media">
+                                        <label>ZipCode</label>
+                                        <p><%= @teacher.address.zipcode %></p>
                                     </div>
                                 </div>
                             </div>
