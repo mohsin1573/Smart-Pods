@@ -1,4 +1,4 @@
-      <%= form_with(model: [@pod, @review], local: true) do |form| %>
+      <%= form_with(model: @review, local: true) do |form| %>
         <%= form.hidden_field :parent_id, value: current_parent.id %>
         <%= form.hidden_field :pod_id, value: @pod.id %>
 
