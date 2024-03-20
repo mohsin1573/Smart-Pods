@@ -58,42 +58,20 @@
             </div>
         </section>
 
-        <div class="card mt-3">
-    <div class="card-body">
-      <h2>Reviews:</h2>
-      <% @pod.reviews.each do |review| %>
-        <div class="mb-3">
-          <span>Review by: <%= review.parent.email %></span>
-          <p><strong>Rating:</strong> <%= review.rating %><br><%= review.content %></p>
-          <% if review.parent == current_parent %>
-            <%= link_to 'Edit Review', edit_pod_review_path(@pod, review), class: "btn btn-primary btn-sm" %> |
-            <%= button_to 'Delete Review', [@pod, review], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
-          <% end %>
+<div class="mb-3">
+  <% @pod.reviews.each do |review| %>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-body">
+            <p class="card-title">Review by: <%= review.parent.email %></p>
+            <p class="card-text"><strong>Review:</strong> <%= review.content %></p>
+            <p class="card-text"><strong>Rating:</strong> <%= review.rating %></p>
+          </div>
         </div>
-        <hr>
-      <% end %>
-      <% if parent_signed_in? %>
-        <button id="write-review-btn" class="btn btn-success">Write a Review</button>
-        <div id="review-form" style="display: none;">
-          <%= render 'reviews/form', pod: @pod %>
-        </div>
-      <% end %>
+      </div>
     </div>
-  </div>
-  <%= link_to "Back to Pods", pods_path, class: "btn btn-secondary mt-3" %>
+  <% end %>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const writeReviewBtn = document.getElementById('write-review-btn');
-    const reviewForm = document.getElementById('review-form');
-
-    writeReviewBtn.addEventListener('click', function() {
-      if (reviewForm.style.display === 'none') {
-        reviewForm.style.display = 'block';
-      } else {
-        reviewForm.style.display = 'none';
-      }
-    });
-  });
-</script>
+    <%= render partial: 'reviews/form', locals: { pod: @pod } %>
+  </div>

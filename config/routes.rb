@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   devise_for :parents
   resources :pods, :teachers, :children, :applications
   resources :pods do
-    resources :reviews
+    resources :reviews,  only: [:create, :destroy]
   end
 end
