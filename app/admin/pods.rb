@@ -37,8 +37,21 @@ ActiveAdmin.register Pod do
           image_tag 'classes-3.jpg', size: '50x50'
         end
       end
+      row "Street" do |pod|
+        pod.address.street
+      end
+      row "City" do |pod|
+        pod.address.city
+      end
+      row "State" do |pod|
+        pod.address.state
+      end
+      row "Zip Code" do |pod|
+        pod.address.zipcode
+      end
     end
   end
+
 
   form do |f|
     f.inputs "Pod Details" do

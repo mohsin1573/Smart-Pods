@@ -39,7 +39,6 @@ ActiveAdmin.register Teacher do
       image_tag 'team-2.jpg', size: '50x50'
     end
     end
-    column :teacher
     actions
   end
 
@@ -56,6 +55,18 @@ ActiveAdmin.register Teacher do
         else
           image_tag 'team-2.jpg', size: '50x50'
         end
+      end
+      row "Street" do |teacher|
+        teacher.address.street
+      end
+      row "City" do |teacher|
+        teacher.address.city
+      end
+      row "State" do |teacher|
+        teacher.address.state
+      end
+      row "Zip Code" do |teacher|
+        teacher.address.zipcode
       end
     end
   end

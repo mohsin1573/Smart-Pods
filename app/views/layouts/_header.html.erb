@@ -1,31 +1,32 @@
 <header>
   <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
     <%= link_to root_path, class: "navbar-brand" do %>
-    <h1 class="m-0 text-primary"><i class="fa fa-book-reader me-3"></i>Smart Pods</h1>
-  <% end %>
+      <h1 class="m-0 text-primary"><i class="fa fa-book-reader me-3"></i>Smart Pods</h1>
+    <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <div class="navbar-nav flex-grow-1" style="margin-left: 950px">
+      <div class="navbar-nav flex-grow-1" style="margin-left: 1000px">
         <% if parent_signed_in? %>
-        <%= link_to "Teachers", teachers_path, class: "nav-item nav-link" %>
-        <%= link_to "Pods", pods_path, class: "nav-item nav-link" %>
-        <div class="dropdown">
+          <%= link_to "Teachers", teachers_path, class: "nav-item nav-link me-3" %>
+          <%= link_to "Pods", pods_path, class: "nav-item nav-link me-3" %>
+          <div class="dropdown me-3">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Child</a>
-          <div class="dropdown-content">
-            <%= link_to "Add Child", new_child_path %>
-            <%= link_to "All Child", children_path %>
-            <%= link_to "Apply for Pod", new_application_path %>
+            <div class="dropdown-content">
+              <%= link_to "Add Child", new_child_path %>
+              <%= link_to "All Child", children_path %>
+              <%= link_to "Apply for Pod", new_application_path %>
+            </div>
           </div>
-        </div>
-          <%= button_to "Log Out", destroy_parent_session_path, method: :delete, class: "btn nav-link", style: "text-decoration: none; padding: 6px;" %>
+          <%= button_to "Log Out", destroy_parent_session_path, method: :delete, class: "btn nav-link me-3", style: "text-decoration: none; padding: 6px;" %>
         <% else %>
-        <%= link_to "Pods", pods_path, class: "nav-item nav-link" %>
-        <%= link_to "Teachers", teachers_path, class: "nav-item nav-link" %>
-        <%= link_to "Login", new_parent_session_path, class: "nav-item nav-link" %>
-        <%= link_to "Sign Up", new_parent_registration_path, class: "nav-item nav-link", style: "text-decoration: none;" %>
+          <%= link_to "Pods", pods_path, class: "nav-item nav-link me-3" %>
+          <%= link_to "Teachers", teachers_path, class: "nav-item nav-link me-3" %>
+          <%= link_to "Login", new_parent_session_path, class: "nav-item nav-link me-3" %>
+          <%= link_to "Sign Up", new_parent_registration_path, class: "nav-item nav-link me-3", style: "text-decoration: none;" %>
         <% end %>
       </div>
+    </div>
   </nav>
 </header>

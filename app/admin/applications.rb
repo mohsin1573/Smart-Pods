@@ -16,8 +16,8 @@ ActiveAdmin.register Application do
     column :status
     actions defaults: false do |application|
       if application.pending?
-        item "Approve", approve_admin_application_path(application), method: :put
-        item "Reject", reject_admin_application_path(application), method: :put
+        item " Approve   ", approve_admin_application_path(application), method: :put
+        item " Reject ", reject_admin_application_path(application), method: :put
       end
     end
   end
