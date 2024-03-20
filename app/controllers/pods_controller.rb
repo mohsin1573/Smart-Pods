@@ -6,12 +6,15 @@ class PodsController < ApplicationController
     @pods = Pod.page(params[:page]).per(10)
   end
 
-  def show
-  end
+    def show
+      @pod = Pod.find(params[:id])
+      @review = Review.new
+    end
 
   def new
     @pod = Pod.new
     @pod.pictures.build
+    @review = Review.new
   end
 
   def edit

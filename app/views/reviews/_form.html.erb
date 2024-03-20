@@ -1,22 +1,15 @@
-<% if parent_signed_in? %>
-  <div class="row">
-    <div class="col-md-6">
-      <form action="<%= pod_reviews_path(pod) %>" method="post">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <div class="mb-3">
-          <label class="form-label">Add a Review</label>
-          <textarea name="review[content]" class="form-control" rows="3" style="resize: vertical;"></textarea>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Rating</label>
-          <input type="number" name="review[rating]" class="form-control" min="1" max="5">
-        </div>
-        <div class="text-center">
-          <input type="submit" value="Submit" class="btn btn-primary">
-        </div>
-      </form>
-    </div>
+<div class="row">
+  <div class="col-md-6">
+<%= form_with(model: [pod, @review], data: { turbo_frame: "reviews" }) do |form| %>
+      <div class="mb-3">
+        <label class="form-label">Add a Review</label>
+        <%= form.text_area :content, class: 'form-control', rows: 3, style: 'resize: vertical;' %>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Rating</label>
+        <%= form.number_field :rating, class: 'form-control', min: 1, max: 5 %>
+      </div>
+      <%= form.submit 'Submit', class: 'btn btn-primary' %>
+    <% end %>
   </div>
-<% else %>
-  <p>Please sign in to leave a review.</p>
-<% end %>
+</div>

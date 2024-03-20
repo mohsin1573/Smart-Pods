@@ -1,17 +1,20 @@
 class ReviewsController < ApplicationController
+
   def create
-      @review = current_parent.reviews.new(review_params)
-      if !@review.save
-          flash[:notice] = @review.errors.full_messages.to_sentence
+    @pod = Pod.find(params[:pod_id])
+    @review = @pod.reviews.create(review_params)
+    respond_to do |format|
+      if @review.save
+        format.turbo_stream
+      else
+        format.html { render 'pods/show', status: :unprocessable_entity }
       end
-
-      redirect_to pod_path(params[:pod_id])
+    end
   end
-
 
   private
 
     def review_params
-      params.require(:review).permit(:content, :rating).merge(pod_id: params[:pod_id])
-     end
+      params.require(:review).permit(:content, :rating)
+    end
 end

@@ -58,20 +58,9 @@
             </div>
         </section>
 
-<div class="mb-3">
-  <% @pod.reviews.each do |review| %>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card mb-3">
-          <div class="card-body">
-            <p class="card-title">Review by: <%= review.parent.email %></p>
-            <p class="card-text"><strong>Review:</strong> <%= review.content %></p>
-            <p class="card-text"><strong>Rating:</strong> <%= review.rating %></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
+<h2>Reviews</h2>
+<div id="reviews">
+  <%= render @pod.reviews %>
 </div>
-    <%= render partial: 'reviews/form', locals: { pod: @pod } %>
-  </div>
+
+<%= render "reviews/form", pod: @pod %>
